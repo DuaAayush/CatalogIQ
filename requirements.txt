@@ -1,0 +1,2 @@
+# Is project ko koi extra package nahi chahiye. Sirf Python 3.9+ (standard library).
+# Tests bhi standard library ke unittest se chalte hain.
