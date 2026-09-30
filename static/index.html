@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CatalogIQ</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <a class="skip-link" href="#catalogue-heading">Skip to catalogue</a>
+
+  <header>
+    <h1>CatalogIQ</h1>
+    <p>Upload messy product listings. Get a clean, searchable catalogue.</p>
+  </header>
+
+  <main>
+    <!-- 1. UPLOAD -->
+    <section aria-labelledby="upload-heading">
+      <h2 id="upload-heading">1. Upload listings</h2>
+      <p class="hint">CSV with columns: <code>sku, raw_title, raw_description</code></p>
+      <div class="row">
+        <label for="csv-file">CSV file</label>
+        <input id="csv-file" type="file" accept=".csv,text/csv">
+        <button id="upload-button" type="button">Upload</button>
+      </div>
+      <p id="upload-message" role="status"></p>
+
+      <div id="progress-box" hidden>
+        <progress id="progress-bar" value="0" max="100" aria-label="Job progress"></progress>
+        <p id="progress-text" role="status" aria-live="polite"></p>
+      </div>
+    </section>
+
+    <!-- 2. CATALOGUE -->
+    <section aria-labelledby="catalogue-heading">
+      <h2 id="catalogue-heading" tabindex="-1">2. Catalogue</h2>
+      <div class="row">
+        <label for="search-box">Search</label>
+        <input id="search-box" type="search" placeholder="Search title...">
+        <label for="category-filter">Category</label>
+        <select id="category-filter"><option value="">All categories</option></select>
+      </div>
+
+      <p id="list-message" role="status" aria-live="polite"></p>
+      <ul id="product-list" class="product-list"></ul>
+
+      <nav class="row" aria-label="Pages">
+        <button id="previous-button" type="button">Previous</button>
+        <span id="page-text">Page 1</span>
+        <button id="next-button" type="button">Next</button>
+      </nav>
+    </section>
+
+    <!-- 3. REVIEW -->
+    <section aria-labelledby="review-heading">
+      <h2 id="review-heading" tabindex="-1">3. Review a product</h2>
+      <p id="review-empty">Click "Review" on any product above.</p>
+
+      <form id="review-form" hidden>
+        <div class="review-grid">
+          <div class="card">
+            <h3>Raw (from seller)</h3>
+            <p><strong>SKU:</strong> <span id="raw-sku"></span></p>
+            <p><strong>Title:</strong> <span id="raw-title"></span></p>
+            <p><strong>Description:</strong> <span id="raw-description"></span></p>
+            <p><strong>Status:</strong> <span id="review-status"></span></p>
+            <p><strong>Brand:</strong> <span id="review-brand"></span></p>
+            <p id="review-error" class="error" hidden></p>
+          </div>
+
+          <div class="card">
+            <h3>Cleaned (you can edit)</h3>
+            <label for="edit-title">Title</label>
+            <input id="edit-title" type="text" required>
+            <label for="edit-category">Category</label>
+            <select id="edit-category"></select>
+            <label for="edit-tags">Tags (comma separated, max 5)</label>
+            <input id="edit-tags" type="text">
+            <button type="submit">Save and approve</button>
+            <p id="review-message" role="status" aria-live="polite"></p>
+          </div>
+        </div>
+      </form>
+    </section>
+  </main>
+
+  <script src="/static/script.js"></script>
+</body>
+</html>

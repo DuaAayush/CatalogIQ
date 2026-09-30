@@ -1,0 +1,55 @@
+/* Simple, mobile-first styling. 360px wide phone par bhi theek dikhta hai. */
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: system-ui, Arial, sans-serif;
+  line-height: 1.5;
+  color: #1a1a1a;
+  background: #f5f6f8;
+}
+
+header { background: #1f3a8a; color: white; padding: 12px 16px; }
+header h1 { margin: 0; font-size: 1.5rem; }
+header p { margin: 4px 0 0; font-size: 0.95rem; }
+
+main { max-width: 900px; margin: 0 auto; padding: 8px 12px 40px; }
+section { background: white; border-radius: 8px; padding: 12px 16px; margin: 12px 0; }
+h2 { margin: 0 0 8px; font-size: 1.2rem; }
+h3 { margin: 0 0 8px; font-size: 1rem; }
+.hint { margin: 0 0 8px; color: #555; font-size: 0.9rem; }
+
+label { display: block; font-weight: 600; margin: 8px 0 2px; }
+.row { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+.row label { margin: 0; }
+
+input, select, button { font: inherit; padding: 8px 10px; border: 1px solid #999; border-radius: 6px; max-width: 100%; }
+input[type="text"], input[type="search"] { width: 100%; }
+.row input[type="search"] { width: auto; flex: 1 1 160px; }
+button { background: #1f3a8a; color: white; border-color: #1f3a8a; cursor: pointer; }
+button:disabled { background: #999; border-color: #999; cursor: not-allowed; }
+
+/* Keyboard se chalne wale ko dikhna chahiye ki focus kahan hai */
+:focus-visible { outline: 3px solid #f59e0b; outline-offset: 2px; }
+
+.skip-link { position: absolute; left: -999px; top: 0; background: white; padding: 8px; z-index: 10; }
+.skip-link:focus { left: 8px; top: 8px; }
+
+progress { width: 100%; height: 20px; }
+
+.product-list { list-style: none; padding: 0; margin: 12px 0; }
+.product-list li {
+  border: 1px solid #ddd; border-radius: 6px; padding: 8px 10px; margin-bottom: 8px;
+  display: flex; flex-wrap: wrap; gap: 8px; justify-content: space-between; align-items: center;
+}
+.product-info { flex: 1 1 200px; min-width: 0; overflow-wrap: anywhere; }
+.product-meta { font-size: 0.85rem; color: #555; }
+.badge { display: inline-block; padding: 0 8px; border-radius: 10px; font-size: 0.8rem; border: 1px solid #999; }
+.badge.failed { border-color: #b91c1c; color: #b91c1c; }
+.badge.approved { border-color: #15803d; color: #15803d; }
+.error { color: #b91c1c; font-weight: 600; overflow-wrap: anywhere; }
+
+.review-grid { display: grid; gap: 12px; grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr)); }
+.card { border: 1px solid #ddd; border-radius: 6px; padding: 10px 12px; overflow-wrap: anywhere; }
+.card p { margin: 4px 0; }
+.card button { margin-top: 12px; }
